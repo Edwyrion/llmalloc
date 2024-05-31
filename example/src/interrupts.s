@@ -1,0 +1,69 @@
+.file "interrupts.s"
+
+.syntax unified
+.cpu cortex-m4
+.arch armv7e-m
+.fpu fpv4-sp-d16
+.thumb
+
+@ Default interrupt handlers
+.macro set_default_handler handler_name:req
+    .weak \handler_name
+    .thumb_set \handler_name, Default_Handler
+.endm
+
+@ Interrupt handlers that are not yet implemented default to the Default_Handler
+set_default_handler NMI_Handler
+set_default_handler HardFault_Handler
+set_default_handler MemManage_Handler
+set_default_handler BusFault_Handler
+set_default_handler UsageFault_Handler
+set_default_handler SVC_Handler
+set_default_handler DebugMon_Handler
+set_default_handler PendSV_Handler
+set_default_handler SysTick_Handler
+set_default_handler WWDG_IRQHandler
+set_default_handler PVD_IRQHandler
+set_default_handler TAMP_STAMP_IRQHandler
+set_default_handler RTC_WKUP_IRQHandler
+set_default_handler FLASH_IRQHandler
+set_default_handler RCC_IRQHandler
+set_default_handler EXTI0_IRQHandler
+set_default_handler EXTI1_IRQHandler
+set_default_handler EXTI2_TS_IRQHandler
+set_default_handler EXTI3_IRQHandler
+set_default_handler EXTI4_IRQHandler
+set_default_handler DMA1_Channel1_IRQHandler
+set_default_handler DMA1_Channel2_IRQHandler
+set_default_handler DMA1_Channel3_IRQHandler
+set_default_handler DMA1_Channel4_IRQHandler
+set_default_handler DMA1_Channel5_IRQHandler
+set_default_handler DMA1_Channel6_IRQHandler
+set_default_handler DMA1_Channel7_IRQHandler
+set_default_handler ADC1_2_IRQHandler
+set_default_handler CAN_TX_IRQHandler
+set_default_handler CAN_RX0_IRQHandler
+set_default_handler CAN_RX1_IRQHandler
+set_default_handler CAN_SCE_IRQHandler
+set_default_handler EXTI9_5_IRQHandler
+set_default_handler TIM1_BRK_TIM15_IRQHandler
+set_default_handler TIM1_UP_TIM16_IRQHandler
+set_default_handler TIM1_TRG_COM_TIM17_IRQHandler
+set_default_handler TIM1_CC_IRQHandler
+set_default_handler TIM2_IRQHandler
+set_default_handler I2C1_EV_IRQHandler
+set_default_handler I2C1_ER_IRQHandler
+set_default_handler I2C2_EV_IRQHandler
+set_default_handler I2C2_ER_IRQHandler
+set_default_handler SPI2_IRQHandler
+set_default_handler USART1_IRQHandler
+set_default_handler USART2_IRQHandler
+set_default_handler USART3_IRQHandler
+set_default_handler EXTI15_10_IRQHandler
+set_default_handler RTC_Alarm_IRQHandler
+set_default_handler USBWakeUp_IRQHandler
+set_default_handler SPI3_IRQHandler
+set_default_handler TIM6_DAC_IRQHandler
+set_default_handler COMP2_IRQHandler
+set_default_handler COMP4_6_IRQHandler
+.end
